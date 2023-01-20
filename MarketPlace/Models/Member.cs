@@ -27,5 +27,6 @@ namespace MarketPlace.Models
 
         [ForeignKey("LocationId")]
         public virtual Location Location { get; set; } = new Location();
+
     }
 }

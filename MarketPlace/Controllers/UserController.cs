@@ -26,5 +26,13 @@ namespace MarketPlace.Controllers
 
         }
 
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public IActionResult Login([FromBody] LoginRequest loginRequest)
+        {
+            ;
+            return Ok(_userService.Login(loginRequest));
+
+        }
     }
 }
