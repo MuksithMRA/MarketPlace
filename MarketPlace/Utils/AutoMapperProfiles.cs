@@ -9,9 +9,19 @@ namespace POS_API.Helpers
     {
        public AutoMapperProfiles()
         {
-            CreateMap<UserDTO, User>();
-            CreateMap<MemberDTO, Member>();
+            CreateMap<UserDTO, User>().ForMember(
+                des => des.Member,
+                src => src.MapFrom(src => src.MemberDTO)
+            ).ForPath(
+                des => des.Member.Location,
+                src => src.MapFrom(src => src.MemberDTO.LocationDTO)
+            );
+            CreateMap<MemberDTO, Member>().ForMember(
+                des => des.Location,
+                src => src.MapFrom(src => src.LocationDTO)
+            );
             CreateMap<LocationDTO, Location>();
+
             CreateMap<RegisterRequestDto, User>().ForMember(
                 des => des.Member,
                 src => src.MapFrom(src => src.memberDTO)
