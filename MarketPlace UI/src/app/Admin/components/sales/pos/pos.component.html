@@ -1,0 +1,108 @@
+<div class="mt-1 p-3">
+    <div class="row">
+        <div class="col-lg-8 g-0">
+            <div class="m-4 mt-0">
+                <app-common-header heading="Categories" subHeading="Manage your purchase"></app-common-header>
+            </div>
+            <p-carousel [value]="categories" [numVisible]="7" [numScroll]="1">
+                <ng-template let-category pTemplate="item">
+                    <div class="category-box">
+                        <p class="mb-0">{{category.description}}</p>
+                    </div>
+                </ng-template>
+            </p-carousel>
+            <div class="d-flex items p-3 flex-wrap">
+                <div *ngFor="let product of products" class="card item-card me-3 mb-2">
+
+                    <div class="d-flex">
+                        <p-checkbox [value]="product.id"></p-checkbox>
+                    </div>
+
+                    <img [src]="product.images[0]" class="card-img-top">
+                    <div class="card-body text-center">
+                        <div class="card-text">
+                            {{product.category}}
+                        </div>
+                        <div class="card-title">
+                            {{product.name}}
+                        </div>
+                        <div class="card-text">
+                            Price : LKR {{product.price}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="m-4 mt-0">
+                <app-common-header heading="Order List" subHeading="Transaction ID"></app-common-header>
+            </div>
+            <button pButton type="button" label="Add Customer" class="p-button-outlined w-100 mb-3"></button>
+            <p-dropdown [options]="customers" [(ngModel)]="selectedCustomer" styleClass="w-100 mb-3"></p-dropdown>
+            <p-dropdown [options]="customers" [(ngModel)]="selectedCustomer" styleClass="w-100 mb-3"></p-dropdown>
+            <div class="d-flex w-100 justify-content-end">
+                <button pButton type="button" label="Scan Bar Code" class=" mb-3"></button>
+            </div>
+            <div class="items-header d-flex align-items-center justify-content-between mb-3">
+                <p-chip label="Total Items 4"></p-chip>
+                <button pButton type="button" label="Clear All" class="p-button-text p-button-danger"></button>
+            </div>
+            <div class="order-item-list">
+                <div class="d-flex order-item mb-3  justify-content-between align-items-center">
+                    <div class="leading d-flex">
+                        <div class="order-item-image me-3"></div>
+                        <div class="order-item-body">
+                            <h5>Pinapple</h5>
+                            <div class="pb-1">PT001</div>
+                            <div class="d-flex quantity align-items-center">
+                                <button pButton type="button" label="-"
+                                    class="p-button-text p-button-rounded p-button-danger"></button>
+                                <div class="quantity-value px-3">1</div>
+                                <button pButton type="button" label="+"
+                                    class="p-button-text p-button-rounded p-button-success"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="price">
+                        3000.00
+                    </div>
+                    <div class="order-item-trailing">
+                        <button pButton type="button" class="p-button-text p-button-rounded p-button-danger">
+                            <i class="pi pi-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bills mb-3">
+                <div class="d-flex subtotal justify-content-between">
+                    <div class="subtotal-label">
+                        Subtotal
+                    </div>
+                    <div class="subtotal-value">
+                        3000.00
+                    </div>
+                </div>
+                <div class="d-flex tax justify-content-between">
+                    <div class="tax-label">
+                        Tax
+                    </div>
+                    <div class="tax-value">
+                        500
+                    </div>
+                </div>
+                <div class="d-flex total justify-content-between">
+                    <div class="total-label">
+                        Total
+                    </div>
+                    <div class="total-value">
+                        3500.00
+                    </div>
+                </div>
+            </div>
+            <button pButton type="button" class="p-button-raised w-100 mb-3 d-flex justify-content-between"><span
+                    class="w-50 text-start">Checkout</span><span class="text-end w-50">35000</span>
+            </button>
+        </div>
+    </div>
+</div>

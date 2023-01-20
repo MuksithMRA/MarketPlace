@@ -1,0 +1,21 @@
+<div class="menu-item rounded-3 w-100 py-2   mb-3 d-flex align-items-center " (click)="onDropDown()"
+    [ngClass]="{'px-0 justify-content-center':isCollapse , 'px-3 justify-content-between':!isCollapse}">
+    <div>
+        <img [src]="sidebarButton.leadingIcon" alt="{{sidebarButton.leadingIcon.split('/')[1]}}" height="20px"
+            width="20px">
+        <span class="ms-2" *ngIf="!isCollapse">{{sidebarButton.title}}</span>
+    </div>
+    <div [ngStyle]="{'transition':'0.2s' , 'transform':!sidebarButton.isSelected?'rotate(-90deg)':''}"
+        *ngIf="!isCollapse && sidebarButton?.isDropdown">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 -6 524 524">
+            <path d="M64 191L98 157 262 320 426 157 460 191 262 387 64 191Z" />
+        </svg>
+    </div>
+</div>
+<div *ngIf="sidebarButton?.isDropdown && sidebarButton?.isSelected" class="ps-1" role="button">
+    <div class="menu-subitem rounded-3 w-100 py-2 px-3 d-flex align-items-center "
+        *ngFor="let sidebarSubItem of sidebarButton?.dropdownItems;let i = index" (click)="onSubItemClicked(i)">
+        <span class="selectionDot" [ngClass]="{'active':sidebarSubItem.isSelected}"></span>
+        <span class="ms-2 subitem">{{sidebarSubItem.title}}</span>
+    </div>
+</div>

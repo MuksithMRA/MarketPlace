@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "description": "Category 1",
+        "subcategories": [
+            "Subcategory 1",
+            "Subcategory 2",
+            "Subcategory 3",
+            "Subcategory 4",
+            "Subcategory 5"
+        ]
+    },
+    {
+        "id": 2,
+        "description": "Category 2",
+        "subcategories": [
+            "Subcategory 1",
+            "Subcategory 2",
+            "Subcategory 3",
+            "Subcategory 4",
+            "Subcategory 5"
+        ]
+    },
+    {
+        "id": 3,
+        "description": "Category 3",
+        "subcategories": [
+            "Subcategory 1",
+            "Subcategory 2",
+            "Subcategory 3",
+            "Subcategory 4",
+            "Subcategory 5"
+        ]
+    },
+    {
+        "id": 4,
+        "description": "Category 4",
+        "subcategories": [
+            "Subcategory 1",
+            "Subcategory 2",
+            "Subcategory 3",
+            "Subcategory 4",
+            "Subcategory 5"
+        ]
+    },
+    {
+        "id": 5,
+        "description": "Category 5",
+        "subcategories": [
+            "Subcategory 1",
+            "Subcategory 2",
+            "Subcategory 3",
+            "Subcategory 4",
+            "Subcategory 5"
+        ]
+    }
+]

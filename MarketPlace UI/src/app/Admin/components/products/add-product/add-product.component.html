@@ -1,0 +1,68 @@
+<app-common-header heading="Product Add" subHeading="Create new product">
+</app-common-header>
+
+<div class="container-fluid">
+    <p-card>
+        <div class="row">
+            <div class="col-3 d-flex flex-column pb-3 ">
+                <label>Product Name</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Category</label>
+                <p-dropdown [options]="categories" optionLabel="description" optionValue="id"
+                    [(ngModel)]="selectedCategory" (onChange)="loadSubCategories()" class="p-dropdown-sm"></p-dropdown>
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Sub Category</label>
+                <p-dropdown [options]="subCategories" [(ngModel)]="selectedSubCategory"
+                    class="p-dropdown-sm"></p-dropdown>
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Brand</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Minimum Qty</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Quantity</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+            <div class="col-12 d-flex flex-column pb-3">
+                <label>Description</label>
+                <textarea [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"></textarea>
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Tax</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Discount type</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Price</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+            <div class="col-3 d-flex flex-column pb-3">
+                <label>Status</label>
+                <input type="text" pInputText class="p-inputtext-sm">
+            </div>
+            <div class="col-12 d-flex flex-column pb-3">
+                <label>Product Image</label>
+                <div
+                    class="container-fluid border-1 border-dark bg-light p-5 d-flex justify-content-center align-items-center">
+                    <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*"
+                        [auto]="true"></p-fileUpload>
+                </div>
+            </div>
+            <div class="col-12 d-flex  pb-3">
+                <p-button label="Save" styleClass="p-button-raised   p-button-primary me-2"></p-button>
+                <p-button label="Cancel" styleClass="p-button-raised  p-button-danger"></p-button>
+            </div>
+        </div>
+    </p-card>
+</div>

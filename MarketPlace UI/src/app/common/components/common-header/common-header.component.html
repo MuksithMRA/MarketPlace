@@ -1,0 +1,14 @@
+<ng-content select="[top-content]"></ng-content>
+<div class="header p-3 d-flex justify-content-between align-items-center">
+    <ng-content select="[left-content]"></ng-content>
+    <div class="headings">
+        <div class="heading textLarger bold">
+            {{heading}}
+        </div>
+        <div class="subheading textMedium">
+            {{subHeading}}
+        </div>
+    </div>
+    <ng-content select="[right-content]"></ng-content>
+</div>
+<ng-content select="[bottom-content]"></ng-content>
