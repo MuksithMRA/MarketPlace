@@ -33,11 +33,12 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
 import { CheckboxModule } from 'primeng/checkbox';
 import { LoginComponent } from './common/components/login/login.component';
+import { CommonValidationMessageComponent } from './common/components/common-validation-message/common-validation-message.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { LoginComponent } from './common/components/login/login.component';
     SalesListComponent,
     PosComponent,
     CommonHeaderComponent,
-    LoginComponent
+    LoginComponent,
+    CommonValidationMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import { LoginComponent } from './common/components/login/login.component';
     FormsModule,
     ChipModule,
     ChipsModule,
-    CheckboxModule
+    CheckboxModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

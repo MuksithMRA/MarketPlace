@@ -1,1 +1,47 @@
-<p>login works!</p>
+<div class="d-flex">
+    <div class="login-section">
+        <div class="login-header mb-5">
+            <img src="assets/logo.png" alt="" width="200rem" class="mb-4">
+            <h3>Sign in</h3>
+            <div>Please Login to your account</div>
+        </div>
+        <form class="login-body w-100" [formGroup]="loginform" (ngSubmit)="onSignIn()">
+            <div class="mb-3 d-flex flex-column">
+                <label class="mb-1">Email</label>
+                <input type="text" pInputText class="p-inputtext-sm" formControlName="email">
+                <small class="text-danger"
+                    *ngIf="this.loginform.get('email')?.hasError('required') && loginform.get('email')?.touched">
+                    This field is required.
+                </small>
+                <small class="text-danger"
+                    *ngIf="this.loginform.get('email')?.hasError('email') && loginform.get('email')?.touched">
+                    Invalid email address.
+                </small>
+
+            </div>
+            <div class="mb-4 d-flex flex-column">
+                <label class="mb-1">Password</label>
+                <input type="text" pInputText class="p-inputtext-sm" formControlName="password">
+                <small class="text-danger"
+                    *ngIf="this.loginform.get('password')?.hasError('required') && loginform.get('password')?.touched">
+                    This field is required.
+                </small>
+            </div>
+            <div class="mb-4 ">
+                <a href="" class="text-decoration-none text-warning bold">Forgot Password?</a>
+            </div>
+            <div class="mb-3 d-flex flex-column">
+                <p-button type="submit" label="Sign in" styleClass="w-100 p-button-warning me-2"
+                    [disabled]="loginform.invalid"></p-button>
+            </div>
+        </form>
+    </div>
+    <div class="banner-section">
+        <div class="banner">
+            <div class="banner-content">
+                <h1>MarketPlace</h1>
+                <p>MarketPlace is a platform for buying and selling products</p>
+            </div>
+        </div>
+    </div>
+</div>

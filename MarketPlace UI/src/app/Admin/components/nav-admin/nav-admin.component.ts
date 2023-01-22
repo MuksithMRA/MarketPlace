@@ -23,6 +23,9 @@ export class NavAdminComponent implements OnInit {
 
   onLogout(): void {
     this.router.navigate(['/login']);
+    this.showProfileDropdown = false;
   }
+
+
 
 }
