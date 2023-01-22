@@ -1,4 +1,5 @@
 ﻿using MarketPlace.Dtos;
+using MarketPlace.Dtos.NewFolder;
 using MarketPlace.Dtos.Requests;
 using MarketPlace.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -29,10 +30,24 @@ namespace MarketPlace.Controllers
 
         [AllowAnonymous]
         [HttpPost("Login")]
-        public IActionResult Login([FromBody] LoginRequest loginRequest)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            ;
-            return Ok(_userService.Login(loginRequest));
+            LoginResponse _loginResponse = await _userService.Login(loginRequest);
+            if(_loginResponse.StatusCode == StatusCodes.Status403Forbidden)
+            {
+                return BadRequest(_loginResponse);
+            }
+            else if(_loginResponse.StatusCode == StatusCodes.Status404NotFound) {
+                return NotFound(_loginResponse);
+            }
+            else if(_loginResponse.StatusCode == StatusCodes.Status500InternalServerError)
+            {
+                return StatusCode(500);
+            }
+            else
+            {
+                return Ok(_loginResponse);
+            }
 
         }
 

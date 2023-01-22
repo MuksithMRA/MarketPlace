@@ -7,7 +7,7 @@ import { ProductListComponent } from './Admin/components/products/product-list/p
 import { PosComponent } from './Admin/components/sales/pos/pos.component';
 import { ProductCategoryListComponent } from './Admin/components/products/product-category-list/product-category-list.component';
 import { ProductAddCategoryComponent } from './Admin/components/products/product-add-category/product-add-category.component';
-import { LoginComponent } from './common/components/login/login.component';
+import { LoginComponent } from './Core/components/login/login.component';
 
 
 const routes: Routes = [

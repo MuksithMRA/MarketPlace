@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginResponse } from 'app/Core/interfaces/login-response';
+import { AuthenticationService } from 'app/Core/services/authentication.service';
+import { MessageService } from 'primeng/api/messageservice';
 
 @Component({
   selector: 'app-login',
@@ -15,18 +18,20 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(private router: Router, private fb: FormBuilder) { }
+  constructor(private router: Router, private fb: FormBuilder, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   onSignIn(): void {
+    this.authService.login(this.loginform.value.email, this.loginform.value.password).subscribe((response: LoginResponse) => {
+    });
     if (this.loginform.invalid) {
       this.loginform.markAllAsTouched();
       return;
     }
     //this.router.navigate(['/admin']);
-    alert(JSON.stringify(this.loginform.value));
+    //alert(JSON.stringify(this.loginform.value));
   }
 
 

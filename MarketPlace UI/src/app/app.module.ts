@@ -19,7 +19,7 @@ import { PosComponent } from './Admin/components/sales/pos/pos.component';
 import { AvatarModule } from 'primeng/avatar';
 import { CarouselModule } from 'primeng/carousel';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
-import { CommonHeaderComponent } from './common/components/common-header/common-header.component';
+import { CommonHeaderComponent } from './Core/components/common-header/common-header.component';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputTextModule } from 'primeng/inputtext';
@@ -37,8 +37,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
 import { CheckboxModule } from 'primeng/checkbox';
-import { LoginComponent } from './common/components/login/login.component';
-import { CommonValidationMessageComponent } from './common/components/common-validation-message/common-validation-message.component';
+import { LoginComponent } from './Core/components/login/login.component';
+import { CommonValidationMessageComponent } from './Core/components/common-validation-message/common-validation-message.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,9 +87,12 @@ import { CommonValidationMessageComponent } from './common/components/common-val
     ChipModule,
     ChipsModule,
     CheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MessagesModule,
+    MessageModule
+
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

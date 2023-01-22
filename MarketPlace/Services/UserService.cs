@@ -7,6 +7,7 @@ using MarketPlace.Models;
 using MarketPlace.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace MarketPlace.Services
 {
@@ -45,17 +46,21 @@ namespace MarketPlace.Services
                 if (verified)
                 {
                     response.UserDTO = userDto;
-                    response.token = _jwtUtil.GenerateToken(user);
-                    response.message = "Login Success";
+                    response.Token = _jwtUtil.GenerateToken(user);
+                    response.Message = "Login Success";
+                    response.StatusCode = StatusCodes.Status200OK;
                 }
                 else
                 {
-                    response.message = "Wrong Password ! Please try again.";
+                    response.Message = "Wrong Password ! Please try again.";
+                    response.StatusCode = StatusCodes.Status403Forbidden;
                 }
             }
             else
             {
-                response.message = "User doesn't exist for this Email";
+                response.Message = "User doesn't exist for this Email";
+                response.StatusCode = StatusCodes.Status404NotFound;
+        
             }
             return response;
         }
