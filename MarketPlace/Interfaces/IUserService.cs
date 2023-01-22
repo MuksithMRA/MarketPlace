@@ -1,6 +1,7 @@
 ﻿using MarketPlace.Dtos;
 using MarketPlace.Dtos.NewFolder;
 using MarketPlace.Dtos.Requests;
+using MarketPlace.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketPlace.Interfaces
@@ -9,5 +10,6 @@ namespace MarketPlace.Interfaces
     {
         public Task<string> Register(RegisterRequestDto registerRequest);
         public Task<LoginResponse> Login(LoginRequest loginRequest);
+        public UserDTO GetById(int id);
     }
 }

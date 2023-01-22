@@ -1,6 +1,7 @@
 ﻿using MarketPlace.Dtos;
 using MarketPlace.Dtos.Requests;
 using MarketPlace.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,14 @@ namespace MarketPlace.Controllers
             ;
             return Ok(_userService.Login(loginRequest));
 
+        }
+
+   
+        [HttpGet("{id}") , Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult GetById(int id)
+        {
+            var user = _userService.GetById(id);
+            return Ok(user);
         }
     }
 }

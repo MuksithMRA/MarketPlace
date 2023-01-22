@@ -131,3 +131,9 @@ D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\obj\Debug\net6.0\Mark
 D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\obj\Debug\net6.0\MarketPlace.genruntimeconfig.cache
 D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\obj\Debug\net6.0\ref\MarketPlace.dll
 D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\BCrypt.Net-Next.dll
+D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Scrutor.dll
+D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

@@ -14,11 +14,21 @@ namespace MarketPlace.Services
     {
         private readonly DataContext _context;
         private IMapper _mapper;
+        private readonly IJwtUtils _jwtUtil;
 
-        public UserService(DataContext context , IMapper mapper) {
+        public UserService(DataContext context , IMapper mapper , IJwtUtils jwtUtil) {
             _context = context;
             _mapper = mapper;
-         
+            _jwtUtil = jwtUtil;
+        }
+
+        public UserDTO GetById(int id)
+        {
+            User? user = _context.Users.Find(id);
+            if (user == null) throw new KeyNotFoundException("User not found");
+            user.Member = _context.Members.First(x => x.Id == user.MemberId);
+            user.Member.Location = _context.Locations.First(x => x.Id == user.Member.LocationId);
+            return _mapper.Map<UserDTO>(user);
         }
 
         public async Task<LoginResponse> Login(LoginRequest loginRequest)
@@ -35,6 +45,7 @@ namespace MarketPlace.Services
                 if (verified)
                 {
                     response.UserDTO = userDto;
+                    response.token = _jwtUtil.GenerateToken(user);
                     response.message = "Login Success";
                 }
                 else
