@@ -37,7 +37,7 @@ namespace MarketPlace.Controllers
         }
 
    
-        [HttpGet("{id}") , Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        [HttpGet("{id}") , Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme , Roles = "Admin")]
         public IActionResult GetById(int id)
         {
             var user = _userService.GetById(id);
