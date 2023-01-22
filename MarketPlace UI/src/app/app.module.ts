@@ -37,6 +37,7 @@ import { FormsModule } from '@angular/forms';
 import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
 import { CheckboxModule } from 'primeng/checkbox';
+import { LoginComponent } from './common/components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     ProductAddCategoryComponent,
     SalesListComponent,
     PosComponent,
-    CommonHeaderComponent
+    CommonHeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

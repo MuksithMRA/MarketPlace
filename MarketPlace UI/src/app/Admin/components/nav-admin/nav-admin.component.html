@@ -43,8 +43,17 @@
             </g>
         </svg>
     </div>
-    <div class="nav-item" role="button">
+    <div class="nav-item" role="button" (click)="onProfileDropdown()">
         <p-avatar image="assets/logo_collapse.png" pBadge value="4" severity="danger" size="small" shape="circle">
         </p-avatar>
     </div>
+
+    <ng-template [ngIf]="showProfileDropdown">
+        <div class="profile-dropdown">
+            <ul>
+                <li>My Profile</li>
+                <li (click)="onLogout()">Logout</li>
+            </ul>
+        </div>
+    </ng-template>
 </nav>

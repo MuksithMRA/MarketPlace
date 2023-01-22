@@ -4,30 +4,30 @@
 <div class="container-fluid">
     <p-card>
         <div class="row">
-            <div class="col-3 d-flex flex-column pb-3 ">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3 ">
                 <label>Product Name</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Category</label>
                 <p-dropdown [options]="categories" optionLabel="description" optionValue="id"
                     [(ngModel)]="selectedCategory" (onChange)="loadSubCategories()" class="p-dropdown-sm"></p-dropdown>
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Sub Category</label>
                 <p-dropdown [options]="subCategories" [(ngModel)]="selectedSubCategory"
                     class="p-dropdown-sm"></p-dropdown>
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Brand</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>
 
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Minimum Qty</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Quantity</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>
@@ -35,19 +35,19 @@
                 <label>Description</label>
                 <textarea [rows]="5" [cols]="30" pInputTextarea [autoResize]="true"></textarea>
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Tax</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Discount type</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Price</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>
-            <div class="col-3 d-flex flex-column pb-3">
+            <div class="col-lg-3 col-md-6 d-flex flex-column pb-3">
                 <label>Status</label>
                 <input type="text" pInputText class="p-inputtext-sm">
             </div>

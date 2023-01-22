@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-admin',
@@ -8,11 +9,20 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class NavAdminComponent implements OnInit {
   @ViewChild('sidenav')
   sidenav?: ElementRef;
+  showProfileDropdown: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.sidenav?.nativeElement.offsetWidth);
+
+  }
+
+  onProfileDropdown(): void {
+    this.showProfileDropdown = !this.showProfileDropdown;
+  }
+
+  onLogout(): void {
+    this.router.navigate(['/login']);
   }
 
 }
