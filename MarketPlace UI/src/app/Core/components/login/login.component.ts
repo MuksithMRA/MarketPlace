@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
 
   onSignIn(): void {
     this.authService.login(this.loginform.value.email, this.loginform.value.password).subscribe((response: LoginResponse) => {
-      console.log(response);
+      if (response.statusCode == 200) {
+        this.router.navigate(['/admin']);
+      }
     });
     if (this.loginform.invalid) {
       this.loginform.markAllAsTouched();
       return;
     }
-    //this.router.navigate(['/admin']);
-    //alert(JSON.stringify(this.loginform.value));
   }
 
 

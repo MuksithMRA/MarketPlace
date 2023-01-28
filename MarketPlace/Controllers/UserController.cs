@@ -4,7 +4,6 @@ using MarketPlace.Dtos.Requests;
 using MarketPlace.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketPlace.Controllers
@@ -56,7 +55,12 @@ namespace MarketPlace.Controllers
         public IActionResult GetById(int id)
         {
             var user = _userService.GetById(id);
-            return Ok(user);
+            if(user.Id > 0)
+            {
+                return Ok(user);
+            }
+            return NotFound();
+           
         }
     }
 }

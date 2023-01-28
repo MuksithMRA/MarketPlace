@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-notification',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
+
+  }
+
+  onDelete() {
+    this.messageService.clear();
   }
 
 }

@@ -26,7 +26,7 @@ namespace MarketPlace.Services
         public UserDTO GetById(int id)
         {
             User? user = _context.Users.Find(id);
-            if (user == null) throw new KeyNotFoundException("User not found");
+            if (user == null) return new UserDTO();
             user.Member = _context.Members.First(x => x.Id == user.MemberId);
             user.Member.Location = _context.Locations.First(x => x.Id == user.Member.LocationId);
             return _mapper.Map<UserDTO>(user);

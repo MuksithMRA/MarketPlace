@@ -11,7 +11,7 @@ import { LoginComponent } from './Core/components/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'admin', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'admin', component: BaseLayoutComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
