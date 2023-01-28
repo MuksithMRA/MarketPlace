@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   onSignIn(): void {
     this.authService.login(this.loginform.value.email, this.loginform.value.password).subscribe((response: LoginResponse) => {
+      console.log(response);
     });
     if (this.loginform.invalid) {
       this.loginform.markAllAsTouched();

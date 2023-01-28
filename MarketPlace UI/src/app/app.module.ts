@@ -42,6 +42,10 @@ import { CommonValidationMessageComponent } from './Core/components/common-valid
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { MessageService } from 'primeng/api';
+import { LoadingComponent } from './Shared/components/loading/loading.component';
+import { LoadingInterceptorService } from './Shared/services/loading-interceptor.service';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { NotificationComponent } from './Shared/components/notification/notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +61,9 @@ import { MessageService } from 'primeng/api';
     PosComponent,
     CommonHeaderComponent,
     LoginComponent,
-    CommonValidationMessageComponent
+    CommonValidationMessageComponent,
+    LoadingComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -89,10 +95,11 @@ import { MessageService } from 'primeng/api';
     CheckboxModule,
     ReactiveFormsModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    ProgressSpinnerModule
 
   ],
-  providers: [MessageService],
+  providers: [MessageService, LoadingInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

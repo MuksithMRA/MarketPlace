@@ -1,3 +1,4 @@
+<app-loading></app-loading>\
 <div class="d-flex">
     <div class="login-section">
         <div class="login-header mb-5">
@@ -5,6 +6,8 @@
             <h3>Sign in</h3>
             <div>Please Login to your account</div>
         </div>
+        <app-notification></app-notification>
+
         <form class="login-body w-100" [formGroup]="loginform" (ngSubmit)="onSignIn()">
             <div class="mb-3 d-flex flex-column">
                 <label class="mb-1">Email</label>

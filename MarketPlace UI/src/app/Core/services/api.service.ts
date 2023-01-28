@@ -1,15 +1,15 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LoadingService } from 'app/Shared/services/loading.service';
 import { environment } from 'environments/environment';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient, private notificationService: NotificationService) { }
+  constructor(private http: HttpClient, private loadingService: LoadingService) { }
 
   get<T>(path: string, params?: HttpParams, headers?: HttpHeaders): Observable<T> {
     const httpOptions = {
@@ -28,12 +28,8 @@ export class ApiService {
       headers: headers,
       params: params,
     };
-    return this.http.post<T>(environment.apiURL + path, data, httpOptions).pipe(
-      catchError(err => {
-        this.notificationService.showSuccess(err.error.message);
-        return throwError(() => err);
-      }),
-    );
+    return this.http.post<T>(environment.apiURL + path, data, httpOptions);
+
   }
 
   put<T>(path: string, data: any, params?: HttpParams, headers?: HttpHeaders): Observable<T> {

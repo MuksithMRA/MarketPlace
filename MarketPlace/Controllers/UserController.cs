@@ -33,16 +33,16 @@ namespace MarketPlace.Controllers
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
             LoginResponse _loginResponse = await _userService.Login(loginRequest);
-            if(_loginResponse.StatusCode == StatusCodes.Status403Forbidden)
+            if(_loginResponse.StatusCode == StatusCodes.Status401Unauthorized)
             {
-                return BadRequest(_loginResponse);
+                return Unauthorized(_loginResponse);
             }
             else if(_loginResponse.StatusCode == StatusCodes.Status404NotFound) {
                 return NotFound(_loginResponse);
             }
             else if(_loginResponse.StatusCode == StatusCodes.Status500InternalServerError)
             {
-                return StatusCode(500);
+                return Problem(statusCode:_loginResponse.StatusCode, detail:"Internal Server error");
             }
             else
             {

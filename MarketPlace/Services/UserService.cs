@@ -53,7 +53,7 @@ namespace MarketPlace.Services
                 else
                 {
                     response.Message = "Wrong Password ! Please try again.";
-                    response.StatusCode = StatusCodes.Status403Forbidden;
+                    response.StatusCode = StatusCodes.Status401Unauthorized;
                 }
             }
             else
