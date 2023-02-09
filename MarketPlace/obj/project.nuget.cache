@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lD4WZoN8mmEyjMu5am51WZULTCAXZ/rhSjR/T2AwqU0zZJ/UlphFUUQ7M+aSQr3jCYf0WsGGJPQJeQB++eOaFA==",
+  "dgSpecHash": "D8BburQBkPKqlQmoSwH/9wc7HAUx5T1PJAbW+tov4ose0+gqMonwgRozExSDFeVM9BWLtHm5CQGFWKYbyZfP1A==",
   "success": true,
   "projectFilePath": "D:\\Muksith\\Development\\.NET\\MarketPlace-master\\MarketPlace\\MarketPlace.csproj",
   "expectedPackageFiles": [
@@ -64,6 +64,7 @@
     "C:\\Users\\name0\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\name0\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\name0\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
+    "C:\\Users\\name0\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\name0\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.2\\pomelo.entityframeworkcore.mysql.6.0.2.nupkg.sha512",
     "C:\\Users\\name0\\.nuget\\packages\\scrutor\\3.3.0\\scrutor.3.3.0.nupkg.sha512",
     "C:\\Users\\name0\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

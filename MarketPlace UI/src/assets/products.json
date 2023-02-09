@@ -83,5 +83,39 @@
         "status": "Active",
         "dateAdded": "2020-05-06T09:30:00.000Z",
         "dateModified": "2020-05-06T09:30:00.000Z"
+    },
+    {
+        "name": "Bacon,Egg & Cheese Biscuit Burger",
+        "description": "The McDonald's Bacon, Egg & Cheese Biscuit breakfast sandwich features a warm, buttermilk biscuit brushed with real butter, thick cut Applewood smoked bacon, a fluffy folded egg, and a slice of melty American cheese. There are 460 calories in a Bacon, Egg & Cheese Biscuit at McDonald's",
+        "price": 100,
+        "category": "Burger",
+        "subCategory": "Non-Veg",
+        "images": [
+            "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Bacon-Egg-Cheese-Biscuit-Regular-Size-Biscuit-1:1-4-product-tile-desktop"
+        ],
+        "id": 6,
+        "minQuantity": 10,
+        "quantity": 100,
+        "discount": 0,
+        "status": "Active",
+        "dateAdded": "2020-05-06T09:30:00.000Z",
+        "dateModified": "2020-05-06T09:30:00.000Z"
+    },
+    {
+        "name": "Bacon,Egg & Cheese Biscuit Burger",
+        "description": "The McDonald's Bacon, Egg & Cheese Biscuit breakfast sandwich features a warm, buttermilk biscuit brushed with real butter, thick cut Applewood smoked bacon, a fluffy folded egg, and a slice of melty American cheese. There are 460 calories in a Bacon, Egg & Cheese Biscuit at McDonald's",
+        "price": 100,
+        "category": "Burger",
+        "subCategory": "Non-Veg",
+        "images": [
+            "https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Bacon-Egg-Cheese-Biscuit-Regular-Size-Biscuit-1:1-4-product-tile-desktop"
+        ],
+        "id": 7,
+        "minQuantity": 10,
+        "quantity": 100,
+        "discount": 0,
+        "status": "Active",
+        "dateAdded": "2020-05-06T09:30:00.000Z",
+        "dateModified": "2020-05-06T09:30:00.000Z"
     }
 ]

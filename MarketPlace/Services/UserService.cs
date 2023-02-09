@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using MarketPlace.Dtos;
-using MarketPlace.Dtos.NewFolder;
+using MarketPlace.Dtos.Responses;
 using MarketPlace.Dtos.Requests;
 using MarketPlace.Interfaces;
 using MarketPlace.Models;
 using MarketPlace.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace MarketPlace.Services
 {
@@ -25,7 +26,7 @@ namespace MarketPlace.Services
         public UserDTO GetById(int id)
         {
             User? user = _context.Users.Find(id);
-            if (user == null) throw new KeyNotFoundException("User not found");
+            if (user == null) return new UserDTO();
             user.Member = _context.Members.First(x => x.Id == user.MemberId);
             user.Member.Location = _context.Locations.First(x => x.Id == user.Member.LocationId);
             return _mapper.Map<UserDTO>(user);
@@ -44,18 +45,22 @@ namespace MarketPlace.Services
 
                 if (verified)
                 {
-                    response.UserDTO = userDto;
-                    response.token = _jwtUtil.GenerateToken(user);
-                    response.message = "Login Success";
+                    response.User = userDto;
+                    response.Token = _jwtUtil.GenerateToken(user);
+                    response.Message = "Login Success";
+                    response.StatusCode = StatusCodes.Status200OK;
                 }
                 else
                 {
-                    response.message = "Wrong Password ! Please try again.";
+                    response.Message = "Wrong Password ! Please try again.";
+                    response.StatusCode = StatusCodes.Status401Unauthorized;
                 }
             }
             else
             {
-                response.message = "User doesn't exist for this Email";
+                response.Message = "User doesn't exist for this Email";
+                response.StatusCode = StatusCodes.Status404NotFound;
+        
             }
             return response;
         }

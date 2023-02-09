@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
   colheaders: string[] = ["Id", "Name", "Price", "Category", "Subcategory", "Qty", "Actions"];
+  totalRecords: number = 0;
 
   constructor(private router: Router, private productService: ProductService) { }
 
@@ -19,7 +20,9 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts();
     this.productService.products.subscribe(data => {
       this.products = data;
-    })
+      this.totalRecords = this.products.length;
+    });
+
   }
 
   addProduct(): void {

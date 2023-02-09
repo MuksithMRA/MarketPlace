@@ -7,10 +7,11 @@ import { ProductListComponent } from './Admin/components/products/product-list/p
 import { PosComponent } from './Admin/components/sales/pos/pos.component';
 import { ProductCategoryListComponent } from './Admin/components/products/product-category-list/product-category-list.component';
 import { ProductAddCategoryComponent } from './Admin/components/products/product-add-category/product-add-category.component';
+import { LoginComponent } from './Core/components/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'admin', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'admin', component: BaseLayoutComponent, children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'add-category', component: ProductAddCategoryComponent },
     ]
   },
-  { path: 'pos', component: PosComponent }
+  { path: 'pos', component: PosComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

@@ -18,12 +18,12 @@ namespace MarketPlace.Models
         [Column("last_name")]
         public string LastName { get; set; } = string.Empty;
 
+        [Column("phone_number")]
+        public int PhoneNumber { get; set; }
+
         [Required]
         [Column("location_id")]
         public int LocationId { get; set; }
-
-        [Column("phone_number")]
-        public int PhoneNumber { get; set; }
 
         [ForeignKey("LocationId")]
         public virtual Location Location { get; set; } = new Location();

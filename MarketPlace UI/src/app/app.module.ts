@@ -19,7 +19,7 @@ import { PosComponent } from './Admin/components/sales/pos/pos.component';
 import { AvatarModule } from 'primeng/avatar';
 import { CarouselModule } from 'primeng/carousel';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
-import { CommonHeaderComponent } from './common/components/common-header/common-header.component';
+import { CommonHeaderComponent } from './Core/components/common-header/common-header.component';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputTextModule } from 'primeng/inputtext';
@@ -33,10 +33,19 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
 import { CheckboxModule } from 'primeng/checkbox';
+import { LoginComponent } from './Core/components/login/login.component';
+import { CommonValidationMessageComponent } from './Core/components/common-validation-message/common-validation-message.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { MessageService } from 'primeng/api';
+import { LoadingComponent } from './Shared/components/loading/loading.component';
+import { LoadingInterceptorService } from './Shared/services/loading-interceptor.service';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { NotificationComponent } from './Shared/components/notification/notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +59,11 @@ import { CheckboxModule } from 'primeng/checkbox';
     ProductAddCategoryComponent,
     SalesListComponent,
     PosComponent,
-    CommonHeaderComponent
+    CommonHeaderComponent,
+    LoginComponent,
+    CommonValidationMessageComponent,
+    LoadingComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -79,9 +92,14 @@ import { CheckboxModule } from 'primeng/checkbox';
     FormsModule,
     ChipModule,
     ChipsModule,
-    CheckboxModule
+    CheckboxModule,
+    ReactiveFormsModule,
+    MessagesModule,
+    MessageModule,
+    ProgressSpinnerModule
+
   ],
-  providers: [],
+  providers: [MessageService, LoadingInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

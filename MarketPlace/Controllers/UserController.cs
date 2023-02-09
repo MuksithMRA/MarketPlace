@@ -1,9 +1,9 @@
 ﻿using MarketPlace.Dtos;
+using MarketPlace.Dtos.Responses;
 using MarketPlace.Dtos.Requests;
 using MarketPlace.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MarketPlace.Controllers
@@ -29,10 +29,24 @@ namespace MarketPlace.Controllers
 
         [AllowAnonymous]
         [HttpPost("Login")]
-        public IActionResult Login([FromBody] LoginRequest loginRequest)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            ;
-            return Ok(_userService.Login(loginRequest));
+            LoginResponse _loginResponse = await _userService.Login(loginRequest);
+            if(_loginResponse.StatusCode == StatusCodes.Status401Unauthorized)
+            {
+                return Unauthorized(_loginResponse);
+            }
+            else if(_loginResponse.StatusCode == StatusCodes.Status404NotFound) {
+                return NotFound(_loginResponse);
+            }
+            else if(_loginResponse.StatusCode == StatusCodes.Status500InternalServerError)
+            {
+                return Problem(statusCode:_loginResponse.StatusCode, detail:"Internal Server error");
+            }
+            else
+            {
+                return Ok(_loginResponse);
+            }
 
         }
 
@@ -41,7 +55,12 @@ namespace MarketPlace.Controllers
         public IActionResult GetById(int id)
         {
             var user = _userService.GetById(id);
-            return Ok(user);
+            if(user.Id > 0)
+            {
+                return Ok(user);
+            }
+            return NotFound();
+           
         }
     }
 }

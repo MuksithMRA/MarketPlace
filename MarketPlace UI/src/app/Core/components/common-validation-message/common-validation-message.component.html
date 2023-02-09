@@ -1,0 +1,4 @@
+<small class="text-danger"
+    *ngIf="formGroup.get(controlName)?.hasError(controlName) && formGroup.get(controlName)?.touched">
+    This field is required.
+</small>

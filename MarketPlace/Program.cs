@@ -3,17 +3,12 @@ using MarketPlace.Helpers;
 using MarketPlace.Interfaces;
 using MarketPlace.Services;
 using MarketPlace.Utils;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Filters;
 using System.Net.Sockets;
 using System.Net;
 using System.Text;
-using Microsoft.AspNetCore.Server.IIS;
-using Microsoft.Extensions.Options;
 
 string localIP = LocalIPAddress();
 var builder = WebApplication.CreateBuilder(args);
@@ -24,13 +19,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
-builder.Services.AddDbContext<DataContext>(options => {
+builder.Services.AddDbContext<DataContext>(options =>
+{
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")));
 });
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+
 builder.Services.AddScoped<IJwtUtils, JwtUtils>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
