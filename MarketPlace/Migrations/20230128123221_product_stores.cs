@@ -3,52 +3,34 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MarketPlace.Migrations
-{
-public partial class product_stores : Migration
-{
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.DropForeignKey(
-            name: "FK_Sub_Category_Category_CategoryId",
-            table: "Sub_Category");
+namespace MarketPlace.Migrations {
+public partial class product_stores : Migration {
+  protected override void Up(MigrationBuilder migrationBuilder) {
+    migrationBuilder.DropForeignKey(name: "FK_Sub_Category_Category_CategoryId",
+                                    table: "Sub_Category");
 
-        migrationBuilder.RenameColumn(
-            name: "title",
-            table: "Sub_Category",
-            newName: "name");
+    migrationBuilder.RenameColumn(name: "title", table: "Sub_Category",
+                                  newName: "name");
 
-        migrationBuilder.RenameColumn(
-            name: "CategoryId",
-            table: "Sub_Category",
-            newName: "category_id");
+    migrationBuilder.RenameColumn(name: "CategoryId", table: "Sub_Category",
+                                  newName: "category_id");
 
-        migrationBuilder.RenameIndex(
-            name: "IX_Sub_Category_CategoryId",
-            table: "Sub_Category",
-            newName: "IX_Sub_Category_category_id");
+    migrationBuilder.RenameIndex(name: "IX_Sub_Category_CategoryId",
+                                 table: "Sub_Category",
+                                 newName: "IX_Sub_Category_category_id");
 
-        migrationBuilder.RenameColumn(
-            name: "title",
-            table: "Category",
-            newName: "name");
+    migrationBuilder.RenameColumn(name: "title", table: "Category",
+                                  newName: "name");
 
-        migrationBuilder.RenameColumn(
-            name: "title",
-            table: "Brand",
-            newName: "name");
+    migrationBuilder.RenameColumn(name: "title", table: "Brand",
+                                  newName: "name");
 
-        migrationBuilder.AlterColumn<int>(
-            name: "category_id",
-            table: "Sub_Category",
-            type: "int",
-            nullable: false,
-            defaultValue: 0,
-            oldClrType: typeof(int),
-            oldType: "int",
-            oldNullable: true);
+    migrationBuilder.AlterColumn<int>(
+        name: "category_id", table: "Sub_Category", type: "int",
+        nullable: false, defaultValue: 0, oldClrType: typeof(int),
+        oldType: "int", oldNullable: true);
 
-        migrationBuilder.CreateTable(
+    migrationBuilder.CreateTable(
             name: "Stores",
             columns: table => new
         {
@@ -74,7 +56,7 @@ public partial class product_stores : Migration
         })
         .Annotation("MySql:CharSet", "utf8mb4");
 
-        migrationBuilder.CreateTable(
+    migrationBuilder.CreateTable(
             name: "Products",
             columns: table => new
         {
@@ -120,86 +102,56 @@ public partial class product_stores : Migration
         })
         .Annotation("MySql:CharSet", "utf8mb4");
 
-        migrationBuilder.CreateIndex(
-            name: "IX_Products_category_id1",
-            table: "Products",
-            column: "category_id1");
+    migrationBuilder.CreateIndex(name: "IX_Products_category_id1",
+                                 table: "Products", column: "category_id1");
 
-        migrationBuilder.CreateIndex(
-            name: "IX_Products_store_id1",
-            table: "Products",
-            column: "store_id1");
+    migrationBuilder.CreateIndex(name: "IX_Products_store_id1",
+                                 table: "Products", column: "store_id1");
 
-        migrationBuilder.CreateIndex(
-            name: "IX_Products_sub_category_id1",
-            table: "Products",
-            column: "sub_category_id1");
+    migrationBuilder.CreateIndex(name: "IX_Products_sub_category_id1",
+                                 table: "Products", column: "sub_category_id1");
 
-        migrationBuilder.CreateIndex(
-            name: "IX_Stores_location_id",
-            table: "Stores",
-            column: "location_id");
+    migrationBuilder.CreateIndex(name: "IX_Stores_location_id", table: "Stores",
+                                 column: "location_id");
 
-        migrationBuilder.AddForeignKey(
-            name: "FK_Sub_Category_Category_category_id",
-            table: "Sub_Category",
-            column: "category_id",
-            principalTable: "Category",
-            principalColumn: "id",
-            onDelete: ReferentialAction.Cascade);
-    }
+    migrationBuilder.AddForeignKey(
+        name: "FK_Sub_Category_Category_category_id", table: "Sub_Category",
+        column: "category_id", principalTable: "Category",
+        principalColumn: "id", onDelete: ReferentialAction.Cascade);
+  }
 
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.DropForeignKey(
-            name: "FK_Sub_Category_Category_category_id",
-            table: "Sub_Category");
+  protected override void Down(MigrationBuilder migrationBuilder) {
+    migrationBuilder.DropForeignKey(
+        name: "FK_Sub_Category_Category_category_id", table: "Sub_Category");
 
-        migrationBuilder.DropTable(
-            name: "Products");
+    migrationBuilder.DropTable(name: "Products");
 
-        migrationBuilder.DropTable(
-            name: "Stores");
+    migrationBuilder.DropTable(name: "Stores");
 
-        migrationBuilder.RenameColumn(
-            name: "name",
-            table: "Sub_Category",
-            newName: "title");
+    migrationBuilder.RenameColumn(name: "name", table: "Sub_Category",
+                                  newName: "title");
 
-        migrationBuilder.RenameColumn(
-            name: "category_id",
-            table: "Sub_Category",
-            newName: "CategoryId");
+    migrationBuilder.RenameColumn(name: "category_id", table: "Sub_Category",
+                                  newName: "CategoryId");
 
-        migrationBuilder.RenameIndex(
-            name: "IX_Sub_Category_category_id",
-            table: "Sub_Category",
-            newName: "IX_Sub_Category_CategoryId");
+    migrationBuilder.RenameIndex(name: "IX_Sub_Category_category_id",
+                                 table: "Sub_Category",
+                                 newName: "IX_Sub_Category_CategoryId");
 
-        migrationBuilder.RenameColumn(
-            name: "name",
-            table: "Category",
-            newName: "title");
+    migrationBuilder.RenameColumn(name: "name", table: "Category",
+                                  newName: "title");
 
-        migrationBuilder.RenameColumn(
-            name: "name",
-            table: "Brand",
-            newName: "title");
+    migrationBuilder.RenameColumn(name: "name", table: "Brand",
+                                  newName: "title");
 
-        migrationBuilder.AlterColumn<int>(
-            name: "CategoryId",
-            table: "Sub_Category",
-            type: "int",
-            nullable: true,
-            oldClrType: typeof(int),
-            oldType: "int");
+    migrationBuilder.AlterColumn<int>(name: "CategoryId", table: "Sub_Category",
+                                      type: "int", nullable: true,
+                                      oldClrType: typeof(int), oldType: "int");
 
-        migrationBuilder.AddForeignKey(
-            name: "FK_Sub_Category_Category_CategoryId",
-            table: "Sub_Category",
-            column: "CategoryId",
-            principalTable: "Category",
-            principalColumn: "id");
-    }
+    migrationBuilder.AddForeignKey(name: "FK_Sub_Category_Category_CategoryId",
+                                   table: "Sub_Category", column: "CategoryId",
+                                   principalTable: "Category",
+                                   principalColumn: "id");
+  }
 }
 }

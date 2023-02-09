@@ -3,13 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MarketPlace.Migrations
-{
-public partial class product_edit1 : Migration
-{
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.CreateTable(
+namespace MarketPlace.Migrations {
+public partial class product_edit1 : Migration {
+  protected override void Up(MigrationBuilder migrationBuilder) {
+    migrationBuilder.CreateTable(
             name: "ProductImage",
             columns: table => new
         {
@@ -32,16 +29,12 @@ public partial class product_edit1 : Migration
         })
         .Annotation("MySql:CharSet", "utf8mb4");
 
-        migrationBuilder.CreateIndex(
-            name: "IX_ProductImage_product_id1",
-            table: "ProductImage",
-            column: "product_id1");
-    }
+    migrationBuilder.CreateIndex(name: "IX_ProductImage_product_id1",
+                                 table: "ProductImage", column: "product_id1");
+  }
 
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.DropTable(
-            name: "ProductImage");
-    }
+  protected override void Down(MigrationBuilder migrationBuilder) {
+    migrationBuilder.DropTable(name: "ProductImage");
+  }
 }
 }
