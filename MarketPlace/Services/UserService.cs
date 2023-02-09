@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MarketPlace.Dtos;
-using MarketPlace.Dtos.NewFolder;
+using MarketPlace.Dtos.Responses;
 using MarketPlace.Dtos.Requests;
 using MarketPlace.Interfaces;
 using MarketPlace.Models;
@@ -45,7 +45,7 @@ namespace MarketPlace.Services
 
                 if (verified)
                 {
-                    response.UserDTO = userDto;
+                    response.User = userDto;
                     response.Token = _jwtUtil.GenerateToken(user);
                     response.Message = "Login Success";
                     response.StatusCode = StatusCodes.Status200OK;

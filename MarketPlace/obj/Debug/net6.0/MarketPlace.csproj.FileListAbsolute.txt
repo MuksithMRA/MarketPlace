@@ -137,3 +137,4 @@ D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Micr
 D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Scrutor.dll
 D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
 D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\Muksith\Development\.NET\MarketPlace-master\MarketPlace\bin\Debug\net6.0\Newtonsoft.Json.dll

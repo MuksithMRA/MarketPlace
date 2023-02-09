@@ -1,5 +1,5 @@
 ﻿using MarketPlace.Dtos;
-using MarketPlace.Dtos.NewFolder;
+using MarketPlace.Dtos.Responses;
 using MarketPlace.Dtos.Requests;
 using MarketPlace.Models;
 using Microsoft.AspNetCore.Mvc;

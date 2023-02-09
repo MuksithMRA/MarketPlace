@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn(): void {
+    this.router.navigate(['/admin']);
     this.authService.login(this.loginform.value.email, this.loginform.value.password).subscribe((response: LoginResponse) => {
       if (response.statusCode == 200) {
         this.router.navigate(['/admin']);
