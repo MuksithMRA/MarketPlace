@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LoginResponse } from 'app/Core/interfaces/login-response';
 import { AuthenticationService } from 'app/Core/services/authentication.service';
-import { MessageService } from 'primeng/api/messageservice';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +34,4 @@ export class LoginComponent implements OnInit {
       return;
     }
   }
-
-
-
 }
