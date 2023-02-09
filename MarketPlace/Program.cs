@@ -22,7 +22,7 @@ builder.Services.AddCors();
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")));
+                     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")));
 });
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
@@ -32,16 +32,16 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Secret").Value)),
-            ValidateIssuer = false,
-            ValidateAudience = false
-        };
-    });
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Secret").Value)),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
@@ -68,9 +68,9 @@ app.MapControllers();
 
 // global cors policy
 app.UseCors(x => x
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader());
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
 app.Run();
 static string LocalIPAddress()

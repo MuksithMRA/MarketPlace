@@ -4,16 +4,16 @@
 
 namespace MarketPlace.Migrations
 {
-    public partial class category_table23 : Migration
+public partial class category_table23 : Migration
+{
+    protected override void Up(MigrationBuilder migrationBuilder)
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
 
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-
-        }
     }
+
+    protected override void Down(MigrationBuilder migrationBuilder)
+    {
+
+    }
+}
 }

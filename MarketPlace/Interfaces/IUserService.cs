@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MarketPlace.Interfaces
 {
-    public interface IUserService
-    {
-        public Task<string> Register(RegisterRequestDto registerRequest);
-        public Task<LoginResponse> Login(LoginRequest loginRequest);
-        public UserDTO GetById(int id);
-    }
+public interface IUserService
+{
+    public Task<string> Register(RegisterRequestDto registerRequest);
+    public Task<LoginResponse> Login(LoginRequest loginRequest);
+    public UserDTO GetById(int id);
+}
 }
