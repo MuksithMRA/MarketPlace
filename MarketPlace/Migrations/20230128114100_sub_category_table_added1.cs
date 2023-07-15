@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MarketPlace.Migrations {
 public partial class sub_category_table_added1 : Migration {
-  protected override void Up(MigrationBuilder migrationBuilder) {
-    migrationBuilder.CreateTable(
+    protected override void Up(MigrationBuilder migrationBuilder) {
+        migrationBuilder.CreateTable(
             name: "Sub_Category",
             columns: table => new
         {
@@ -32,12 +32,12 @@ public partial class sub_category_table_added1 : Migration {
         })
         .Annotation("MySql:CharSet", "utf8mb4");
 
-    migrationBuilder.CreateIndex(name: "IX_Sub_Category_brand_id",
-                                 table: "Sub_Category", column: "brand_id");
-  }
+        migrationBuilder.CreateIndex(name: "IX_Sub_Category_brand_id",
+                                     table: "Sub_Category", column: "brand_id");
+    }
 
-  protected override void Down(MigrationBuilder migrationBuilder) {
-    migrationBuilder.DropTable(name: "Sub_Category");
-  }
+    protected override void Down(MigrationBuilder migrationBuilder) {
+        migrationBuilder.DropTable(name: "Sub_Category");
+    }
 }
 }
