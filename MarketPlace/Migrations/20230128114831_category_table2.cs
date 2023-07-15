@@ -2,18 +2,10 @@
 
 #nullable disable
 
-namespace MarketPlace.Migrations
-{
-    public partial class category_table2 : Migration
-    {
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
+namespace MarketPlace.Migrations {
+public partial class category_table2 : Migration {
+  protected override void Up(MigrationBuilder migrationBuilder) {}
 
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-
-        }
-    }
+  protected override void Down(MigrationBuilder migrationBuilder) {}
+}
 }

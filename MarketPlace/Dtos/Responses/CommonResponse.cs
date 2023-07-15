@@ -1,4 +1,4 @@
-﻿namespace MarketPlace.Dtos.Responses
+namespace MarketPlace.Dtos.Responses
 {
     public class CommonResponse<T>
     {
