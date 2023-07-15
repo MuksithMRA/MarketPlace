@@ -1,9 +1,9 @@
-<div class="menu-item rounded-3 w-100 py-2   mb-3 d-flex align-items-center " (click)="onDropDown()"
+<div class="menu-item rounded-3 w-100 py-2   mb-3 d-flex align-items-center" (click)="onDropDown()"
     [ngClass]="{'px-0 justify-content-center':isCollapse , 'px-3 justify-content-between':!isCollapse}">
-    <div>
+    <div class="d-inline-flex ">
         <img [src]="sidebarButton.leadingIcon" alt="{{sidebarButton.leadingIcon.split('/')[1]}}" height="20px"
             width="20px">
-        <span class="ms-2" *ngIf="!isCollapse">{{sidebarButton.title}}</span>
+        <div class="ms-2" *ngIf="!isCollapse">{{sidebarButton.title}}</div>
     </div>
     <div [ngStyle]="{'transition':'0.2s' , 'transform':!sidebarButton.isSelected?'rotate(-90deg)':''}"
         *ngIf="!isCollapse && sidebarButton?.isDropdown">

@@ -146,9 +146,7 @@
             "related": ".xml"
           }
         },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        "frameworkReferences": ["Microsoft.AspNetCore.App"]
       },
       "Microsoft.AspNetCore.Cryptography.Internal/2.2.0": {
         "type": "package",
@@ -1119,9 +1117,7 @@
             "related": ".pdb;.xml"
           }
         },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        "frameworkReferences": ["Microsoft.AspNetCore.App"]
       },
       "Swashbuckle.AspNetCore.SwaggerGen/6.2.3": {
         "type": "package",
@@ -1151,9 +1147,7 @@
             "related": ".pdb;.xml"
           }
         },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        "frameworkReferences": ["Microsoft.AspNetCore.App"]
       },
       "System.Buffers/4.5.0": {
         "type": "package",
@@ -3830,9 +3824,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
-      "originalTargetFrameworks": [
-        "net6.0"
-      ],
+      "originalTargetFrameworks": ["net6.0"],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
@@ -3844,9 +3836,7 @@
         }
       },
       "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
+        "warnAsError": ["NU1605"]
       }
     },
     "frameworks": {

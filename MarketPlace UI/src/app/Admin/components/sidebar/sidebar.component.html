@@ -1,8 +1,8 @@
 <p-scrollPanel [ngStyle]="{'width':isCollapse?'70px':'250px'}" styleClass="custom"
     class="position-absolute top-0 left-0 bg-white side-bar  px-3" (mouseenter)="onMouseEnter()"
-    (mouseleave)="onMouseLeave()" scr>
+    (mouseleave)="onMouseLeave()">
 
-    <div class="side-bar-inner">
+    <div class="side-bar-inner overflow-hidden">
         <div class="side-bar-header d-flex w-100 justify-content-between align-items-center mb-5 pt-3 justify-content-center"
             [ngClass]="{'justify-content-between':!isCollapse}">
             <div class="logo fst-italic" *ngIf="isCollapse">
