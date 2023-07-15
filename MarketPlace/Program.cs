@@ -21,10 +21,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
 builder.Services.AddDbContext<DataContext>(options => {
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(
-            builder.Configuration.GetConnectionString("DefaultConnection")));
+  options.UseMySql(
+      builder.Configuration.GetConnectionString("DefaultConnection"),
+      ServerVersion.AutoDetect(
+          builder.Configuration.GetConnectionString("DefaultConnection")));
 });
 builder.Services.Configure<AppSettings>(
     builder.Configuration.GetSection("AppSettings"));
@@ -35,27 +35,27 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(options => {
-    options.TokenValidationParameters = new TokenValidationParameters {
+    .AddJwtBearer(options => {
+      options.TokenValidationParameters = new TokenValidationParameters {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                    builder.Configuration.GetSection("AppSettings:Secret").Value)),
+            builder.Configuration.GetSection("AppSettings:Secret").Value)),
         ValidateIssuer = false, ValidateAudience = false
-    };
-});
+      };
+    });
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
 // migrate any database changes on startup (includes initial db creation)
 using (var scope = app.Services.CreateScope()) {
-    var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
-    dataContext.Database.Migrate();
+  var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
+  dataContext.Database.Migrate();
 }
 
 if (app.Environment.IsDevelopment()) {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
@@ -70,14 +70,14 @@ app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();
 static string LocalIPAddress() {
-    using (Socket socket =
-                new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0)) {
-        socket.Connect("8.8.8.8", 65530);
-        IPEndPoint? endPoint = socket.LocalEndPoint as IPEndPoint;
-        if (endPoint != null) {
-            return endPoint.Address.ToString();
-        } else {
-            return "127.0.0.1";
-        }
+  using (Socket socket =
+             new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0)) {
+    socket.Connect("8.8.8.8", 65530);
+    IPEndPoint? endPoint = socket.LocalEndPoint as IPEndPoint;
+    if (endPoint != null) {
+      return endPoint.Address.ToString();
+    } else {
+      return "127.0.0.1";
     }
+  }
 }
