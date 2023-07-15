@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../../services/utils.service';
 import { SidebarButton } from './models/sidebar-button';
-import { SideBarChildrenService } from './services/side-bar-children.service';
 import { SidebarService } from './services/sidebar.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private utilService: UtilsService,
-    private sideBarService: SidebarService
+    private sideBarService: SidebarService,
   ) { }
 
   ngOnInit(): void {
@@ -45,11 +44,9 @@ export class SidebarComponent implements OnInit {
   onMouseLeave(): void {
     if (!this.isLocked) {
       if (!this.isCollapse) {
-        this.isCollapse = true;
-        this.utilService.toggleSideBar(this.isCollapse);
+        this.onCollapse();
+        this.sideBarService.closeAllDropdowns();
       }
     }
-
   }
-
 }

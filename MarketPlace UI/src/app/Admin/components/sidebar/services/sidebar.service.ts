@@ -13,7 +13,7 @@ export class SidebarService {
       leadingIcon: 'assets/dashboard.svg',
       route: '/admin/dashboard',
       isSelected: true,
-      isDropdown: false
+      isDropdown: false,
     },
     {
       title: 'Products',
@@ -113,5 +113,19 @@ export class SidebarService {
     });
   }
 
+  closeAllDropdowns(): void {
+    this.sidebarButtons.forEach(button => {
+      if (button.isDropdown) {
+        button.isSelected = false;
+      }
+    });
+  }
 
+  toggleDropDown(i: number) {
+    for (let index = 0; index < this.sidebarButtons.length; index++) {
+      if (index == i) {
+        this.sidebarButtons[index].isSelected = !this.sidebarButtons[index].isSelected;
+      }
+    }
+  }
 }

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UtilsService } from 'app/Admin/services/utils.service';
 import { SidebarButton } from '../../models/sidebar-button';
-import { SideBarChildrenService } from '../../services/side-bar-children.service';
 import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class SidebarButtonComponent implements OnInit {
   isCollapse: boolean = false;
 
 
-  constructor(private utilService: UtilsService, private sidebarChildrenService: SideBarChildrenService, private sidebarService: SidebarService) {
+  constructor(private utilService: UtilsService, private sidebarService: SidebarService) {
   }
 
   ngOnInit(): void {
@@ -31,8 +30,7 @@ export class SidebarButtonComponent implements OnInit {
 
   onDropDown(): void {
     if (this.sidebarButton.isDropdown) {
-      this.sidebarButton.isSelected = !this.sidebarButton.isSelected;
-      this.sidebarChildrenService.toggleDropDown(this.sidebarButton.isSelected);
+      this.sidebarService.toggleDropDown(this.btnIndex);
     } else {
       this.sidebarService.onClickSidebarButton(this.sidebarButton.route);
     }
